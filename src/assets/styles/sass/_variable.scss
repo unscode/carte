@@ -1,0 +1,23 @@
+// Breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$breakpoints: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$breakpoints: map-merge(
+                (
+                        xs: 0,
+                        sm: 576px,
+                        md: 768px,
+                        lg: 992px,
+                        xl: 1200px
+                ),
+                $breakpoints
+);
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-columns: 12;
+$grid-gutter-width: 0;

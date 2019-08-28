@@ -1,0 +1,13 @@
+# NPM
+node_modules
+
+# WEBPACK BUILD
+dist
+
+# EDITOR
+.vscode
+.idea
+
+# ENV
+.env
+.env.production

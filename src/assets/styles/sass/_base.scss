@@ -1,0 +1,47 @@
+@import "variable";
+// Normalize
+//
+// Is a small CSS file that provides better cross-browser consistency in the default styling of HTML
+// elements. It’s a modern, HTML5-ready, alternative to the traditional CSS reset.
+@import "~normalize.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-size: 12px;
+}
+
+a,
+a:focus,
+a:active,
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  background: #fec233;
+  font-family: 'Lato', sans-serif;
+
+  @media (min-width: map-get($breakpoints, 'sm') + 1) and (max-width: map-get($breakpoints, 'md')) {
+    & {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (min-width: map-get($breakpoints, 'md') + 1) and (max-width: map-get($breakpoints, 'lg')) {
+    & {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: map-get($breakpoints, 'lg') + 1) {
+    & {
+      font-size: 1.3rem;
+    }
+  }
+}
