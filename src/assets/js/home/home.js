@@ -1,6 +1,7 @@
+var modernizr = require("modernizr");
 
 /**
- * Faz o registro do Service Worker para servir a página mesmo se estiver offline ...
+ * Faz o registro do Service Worker para servir a página no modo offline ...
  */
 
 /*
@@ -14,3 +15,27 @@ if ('serviceWorker' in navigator) {
     });
 }
 */
+
+const blur = () => {
+
+};
+
+const focus = () => {
+
+};
+
+if (modernizr.hasEvent('blur')) {
+    if (window.addEventListener) {
+        window.addEventListener('blur', blur, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onblur', window.addEventListener('blur', blur, false));
+    }
+}
+
+if (modernizr.hasEvent('focus')) {
+    if (window.addEventListener) {
+        window.addEventListener('focus', focus, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onfocus', window.addEventListener('focus', focus, false));
+    }
+}

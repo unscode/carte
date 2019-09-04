@@ -7,60 +7,112 @@
   }
 }
 
-.header {
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.box {
   position: relative;
 
   &:before {
-    top: 50%;
-    left: 50%;
-    width: 1px;
+    top: 0;
+    left: 90%;
+    width: 10%;
     height: 15%;
-    background: #fec233;
+    // background: url("../../../svg/dots-small.svg");
     content: '';
     position: absolute;
-    z-index: -1;
-    animation: down 2500ms ease-in 0ms infinite;
   }
+}
 
-  &:after {
-    top: 50%;
-    left: 50%;
-    width: 1px;
-    height: 60%;
-    background: #111;
-    content: '';
-    position: absolute;
-    z-index: -2;
-  }
-
+.header {
   &-row {
-    width: 80%;
-    background: #fec233;
-    justify-content: space-around;
     align-items: center;
   }
 
   &-illustration {
     margin: auto;
+    padding: 3rem 2rem;
+    border: 1px solid black;
     width: 100%;
     display: block;
+    background: #fec233;
   }
 
   &-description {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-family: 'Chilanka', cursive;
     line-height: 2;
     position: relative;
 
+    &:after {
+      top: 50%;
+      left: 100%;
+      width: 300%;
+      height: 1px;
+      background: black;
+      content: '';
+      position: absolute;
+    }
   }
 }
 
-section {
-  margin-top: 50px;
-  height: calc(100% - 30px);
-  background: #fec233;
+
+.footer {
+  padding: 1rem 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+
+  .location {
+    align-items: center;
+    display: flex;
+
+    &__icon {
+      margin-right: .5rem;
+      width: 25px;
+      display: inline-block;
+    }
+  }
+
+  .mail {
+    align-items: center;
+    display: flex;
+
+    &__icon {
+      margin-right: .5rem;
+      width: 25px;
+      display: inline-block;
+    }
+  }
+
+  .social {
+    align-items: center;
+    display: flex;
+
+    &__facebook,
+    &__twitter,
+    &__instagram,
+    &__youtube {
+      margin: 0 .2rem;
+      width: 25px;
+      height: 25px;
+      background-position: top left;
+      background-size: 25px;
+      display: inline-block;
+    }
+
+    &__facebook {
+      background-image: url("../../../svg/254381-social-media/svg/023-facebook.svg");
+    }
+
+    &__twitter {
+      background-image: url("../../../svg/254381-social-media/svg/008-twitter.svg");
+    }
+
+    &__instagram {
+      background-image: url("../../../svg/254381-social-media/svg/020-instagram.svg");
+    }
+
+    &__youtube {
+      background-image: url("../../../svg/254381-social-media/svg/001-youtube.svg");
+    }
+  }
 }

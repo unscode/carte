@@ -7,6 +7,7 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chilanka|Parisienne&display=swap" rel="stylesheet">
     <% if (process.env.APP_ENV && process.env.APP_ENV === 'production') { %>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async defer
@@ -25,36 +26,29 @@
 </head>
 <body>
 
-<nav class="nav">
-    <ul class="nav-left">
-        <li>Cartê brand</li>
-    </ul>
-    <ul class="nav-right">
-        <li class="nav-left-item">
-            poaksdpsa
-        </li>
-    </ul>
-</nav>
-
-<header class="header">
-    <div class="row header-row">
-        <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-            <img class="header-illustration" src="../../assets/svg/carte.svg">
-        </div>
-        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-            <h3 class="header-description">
-                <b>Olá</b>, esse é o seu ponto de partida no mapa de estratégias que vamos construir juntos.
-            </h3>
+<div class="box">
+    <div class="box__top">
+        <div class="box__content">paoksdopak</div>
+    </div>
+    <div class="box__middle box__middle--larger">
+        <div class="box__content">
+            <div class="row header-row">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <h3 class="header-description">
+                        <b>Olá</b>, esse é o seu ponto de partida no mapa de estratégias que vamos construir juntos.
+                    </h3>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-xl-4">
+                    <img class="header-illustration" src="../../assets/svg/carte.svg">
+                </div>
+            </div>
         </div>
     </div>
-</header>
-<section>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequuntur corporis, ea fuga ipsum laudantium
-        quam quis tempore tenetur voluptatem. Adipisci animi consequuntur dolor maxime modi non nostrum qui
-        velit!
-    </p>
-</section>
-<%= require('html-loader!../partials/footer.ejs') %>
+    <div class="box__bottom">
+        <div class="box__content">
+            <%= require('html-loader!../partials/footer.ejs') %>
+        </div>
+    </div>
+</div>
 </body>
 </html>

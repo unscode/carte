@@ -1,7 +1,10 @@
 {
   "minify": true,
   "options": [
-    "setClasses"
+    "setClasses",
+    "hasEvent"
   ],
-  "feature-detects": []
+  "feature-detects": [
+    "css/flexbox"
+  ]
 }
