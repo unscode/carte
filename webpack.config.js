@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const FaviconWebpackPlugin = require("favicons-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const HtmlWebpackAssetsPlugin = require('./src/html-webpack-assets-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -12,6 +13,7 @@ module.exports = (env, argv) => {
     const config = {
         mode: "development", // "production" | "development" | "none"
         entry: {
+            head: "./src/assets/js/before.js",
             home: [
                 "./src/assets/styles/sass/home/home.scss",
                 "./src/assets/js/home/home.js"
@@ -20,6 +22,11 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: "[name].[contenthash].js"
+        },
+        resolve: {
+            alias: {
+                modernizr$: path.resolve(__dirname, ".modernizrrc")
+            }
         },
         performance: {
             hints: "warning"
@@ -44,7 +51,7 @@ module.exports = (env, argv) => {
             bonjour: true,
             contentBase: path.join(__dirname, "src"),
             compress: true,
-            port: 9000
+            port: 9002
         },
         module: {
             rules: [
@@ -73,6 +80,19 @@ module.exports = (env, argv) => {
                             ]
                         }
                     }
+                },
+                {
+                    test: /\.modernizrrc.js$/,
+                    use: {
+                        loader: "modernizr-loader"
+                    }
+                },
+                {
+                    test: /\.modernizrrc(\.json)?$/,
+                    use: [
+                        "modernizr-loader",
+                        "json-loader"
+                    ]
                 },
                 {
                     test: /\.(sass|scss)$/,
@@ -114,7 +134,7 @@ module.exports = (env, argv) => {
             new webpack.ProgressPlugin(),
             new HtmlWebpackPlugin({
                 template: "src/views/home/index.ejs",
-                chunks: ["runtime", "vendors", "home"],
+                chunks: ["head", "alert", "runtime", "vendors", "home"],
                 minify: {
                     collapseWhitespace: argv.mode === "production",
                     removeComments: argv.mode === "production",
@@ -124,6 +144,7 @@ module.exports = (env, argv) => {
                     useShortDoctype: argv.mode === "production"
                 }
             }),
+            new HtmlWebpackAssetsPlugin(),
             new MiniCssExtractPlugin({
                 filename: "[name].[contenthash].css"
             }),
@@ -131,7 +152,8 @@ module.exports = (env, argv) => {
                 logo: "./src/assets/favicon/brand.png",
                 mode: 'webapp',
                 devMode: 'webapp',
-                title: "Cartê"
+                title: "Cartê",
+                inject: argv.mode === "production",
             }),
             new WorkboxPlugin.GenerateSW({
                 clientsClaim: true,

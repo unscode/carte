@@ -1,3 +1,4 @@
+
 /**
  * Faz o registro do Service Worker para servir a página mesmo se estiver offline ...
  */

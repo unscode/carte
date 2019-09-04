@@ -1,3 +1,66 @@
 @import "../base";
 @import "../common";
 
+@keyframes down {
+  100% {
+    top: 110%;
+  }
+}
+
+.header {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &:before {
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 15%;
+    background: #fec233;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    animation: down 2500ms ease-in 0ms infinite;
+  }
+
+  &:after {
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 60%;
+    background: #111;
+    content: '';
+    position: absolute;
+    z-index: -2;
+  }
+
+  &-row {
+    width: 80%;
+    background: #fec233;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &-illustration {
+    margin: auto;
+    width: 100%;
+    display: block;
+  }
+
+  &-description {
+    font-size: 2.5rem;
+    line-height: 2;
+    position: relative;
+
+  }
+}
+
+section {
+  margin-top: 50px;
+  height: calc(100% - 30px);
+  background: #fec233;
+}

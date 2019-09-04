@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Cartê Marketing | Home</title>
-
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
-
     <% if (process.env.APP_ENV && process.env.APP_ENV === 'production') { %>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_ANALYTICS %>"></script>
+        <script async defer
+                src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_ANALYTICS %>"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
 
@@ -24,11 +22,39 @@
             gtag('config', '<%= process.env.GOOGLE_ANALYTICS %>');
         </script>
     <% } %>
-
 </head>
 <body>
-<header>
 
+<nav class="nav">
+    <ul class="nav-left">
+        <li>Cartê brand</li>
+    </ul>
+    <ul class="nav-right">
+        <li class="nav-left-item">
+            poaksdpsa
+        </li>
+    </ul>
+</nav>
+
+<header class="header">
+    <div class="row header-row">
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4">
+            <img class="header-illustration" src="../../assets/svg/carte.svg">
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+            <h3 class="header-description">
+                <b>Olá</b>, esse é o seu ponto de partida no mapa de estratégias que vamos construir juntos.
+            </h3>
+        </div>
+    </div>
 </header>
+<section>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequuntur corporis, ea fuga ipsum laudantium
+        quam quis tempore tenetur voluptatem. Adipisci animi consequuntur dolor maxime modi non nostrum qui
+        velit!
+    </p>
+</section>
+<%= require('html-loader!../partials/footer.ejs') %>
 </body>
 </html>
