@@ -5,6 +5,8 @@
     "hasEvent"
   ],
   "feature-detects": [
-    "css/flexbox"
+    "css/backgroundcliptext",
+    "css/flexbox",
+    "dom/classlist"
   ]
 }

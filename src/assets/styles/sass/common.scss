@@ -7,8 +7,6 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/grid";
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Box component ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,16 +45,79 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .navbar {
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  z-index: 9999;
+
   &__left,
   &__right {
     padding: 0;
     list-style-type: none;
   }
 
-  &__left {
-  }
-
   &__right {
+    &__hamburger {
+      width: 40px;
+      height: 15px;
+      position: relative;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
 
+      &:before,
+      &:after {
+        height: 4px;
+        background: lighten(black, 40%);
+        content: '';
+        position: absolute;
+        transition: all 200ms ease-in-out;
+      }
+
+      &:before {
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      &:after {
+        right: 0;
+        bottom: 0;
+        width: 60%;
+      }
+
+      &:hover {
+        &:before,
+        &:after {
+          background: black;
+        }
+
+        &:before {
+          width: 60%;
+        }
+
+        &:after {
+          width: 100%;
+        }
+      }
+
+      [menu] & {
+        &:before,
+        &:after {
+          top: 50%;
+          margin-top: -2px;
+          width: 100%;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
   }
 }

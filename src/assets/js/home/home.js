@@ -1,4 +1,5 @@
-var modernizr = require("modernizr");
+const modernizr = require("modernizr");
+require('../menu');
 
 /**
  * Faz o registro do Service Worker para servir a página no modo offline ...
