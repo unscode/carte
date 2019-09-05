@@ -24,9 +24,8 @@ a:hover {
 }
 
 body {
-  background: #eee;
-  // font-family: 'Lato', sans-serif;
-  font-family: 'Chilanka', cursive;
+  background: #dddddd;
+  font-family: 'Lato', sans-serif;
 
   @media (min-width: map-get($breakpoints, 'sm') + 1) and (max-width: map-get($breakpoints, 'md')) {
     & {
