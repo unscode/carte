@@ -53,6 +53,7 @@ animejs({
     targets: '.emotion__follower__one',
     translateX: one('x'),
     translateY: one('y'),
+    rotate: one('angle'),
     easing: 'linear',
     duration: 15000,
     loop: true

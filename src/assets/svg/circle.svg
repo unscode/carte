@@ -10,7 +10,7 @@
         .circle .g .g-three .three {transform-origin:center;animation:rotate 100s linear 0s infinite normal;}
         .circle .g .g-one .one {fill: rgba(254, 194, 51, .2);animation-duration: 50s}
         .circle .g .g-two .two {fill: rgba(254, 194, 51, .6);animation-duration:120s;animation-direction:reverse}
-        .circle .g .g-three .three {fill: rgba(254, 194, 51, .8);animation-duration:110s}
+        .circle .g .g-three .three {fill: rgba(254, 194, 51, .99);animation-duration:110s}
     </style>
     <defs>
         <clipPath id="circle">

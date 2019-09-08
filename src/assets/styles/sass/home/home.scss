@@ -1,10 +1,6 @@
 @import "../base";
 @import "../common";
 
-b {
-  color: darken(#fec233, 15%);
-}
-
 @keyframes rotate {
   20% {
     transform: scale(1.05) rotate(0deg);
@@ -42,7 +38,7 @@ b {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../../../svg/circle.svg") no-repeat -10% center;
+    background: url("../../../svg/circle.svg") no-repeat -15% center;
     background-size: 250%;
     content: '';
     position: absolute;
@@ -53,25 +49,73 @@ b {
 .header {
   &-row {
     align-items: center;
+    justify-content: space-around;
     position: relative;
   }
 
   &__description {
-    font-size: 3rem;
+    margin: .5rem 0;
+    font-size: 2.5rem;
     font-family: 'Chilanka', cursive;
-    line-height: 2;
+    line-height: 1.5;
+    text-shadow: 2px 2px 0 #fff;
     position: relative;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      & {
+        padding-right: 10rem;
+      }
+    }
 
-    .backgroundcliptext & {
+    &:before,
+    &:after {
       background: black;
-      background-size: 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      content: '';
+      position: absolute;
+    }
+
+    &:before {
+      top: -35px;
+      left: 0;
+      width: 1px;
+      height: 30px;
+    }
+
+    &:after {
+      top: 0;
+      left: -35px;
+      width: 30px;
+      height: 1px;
+    }
+  }
+
+  &__about {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: normal;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      & {
+        padding-right: 10rem;
+      }
     }
   }
 
   &__links {
     margin-left: .5rem;
+
+    &__action {
+      margin: 0 1rem;
+      font-size: 3rem;
+      color: lighten(black, 30%);
+
+      &:hover {
+        text-decoration: underline;
+        color: lighten(black, 0%);
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
   }
 }
 
@@ -166,9 +210,19 @@ b {
     &__five {
       width: 50px;
       height: 50px;
-      background: url("../../../svg/send.svg") no-repeat center center;
-      position: absolute;
-      z-index: 9;
+      position: relative;
+
+      &:before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../../../svg/paper-plane2.svg") no-repeat center center;
+        content: '';
+        transform: rotate(25deg);
+        position: absolute;
+        opacity: .5;
+      }
     }
   }
 }
