@@ -44,18 +44,139 @@
 /// Navbar component /////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+@keyframes showing {
+  0% {
+    opacity: 0
+  }
+  50% {
+    padding: 5rem 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hiding {
+  0% {
+    opacity: 1
+  }
+  50% {
+    padding: 5rem 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-top {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
 .navbar {
-  margin-top: 1rem;
+  padding: 1rem 3rem 0 3rem;
   width: 100%;
   justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   display: flex;
+  position: fixed;
   z-index: 9999;
+
+  [menu] & {
+    box-shadow: 0 0 100px 1000px rgba(black, .5);
+    background: white;
+  }
 
   &__left,
   &__right {
     padding: 0;
     list-style-type: none;
+  }
+
+  &__collapse {
+    width: 100%;
+    display: none;
+
+    [menu] & { // Verificar compatibilidade de seletor ...
+      display: block;
+    }
+
+    .menu {
+      margin: 0;
+      padding: 2rem 0;
+      list-style-type: none;
+
+      [menu] & {
+        animation: showing 500ms ease-in-out;
+      }
+
+      [menu-hiding] & {
+        animation: hiding 500ms ease-in-out;
+      }
+
+      &__item {
+        margin: 1.5% 0;
+        text-align: right;
+
+        &:last-of-type {
+          margin-top: 5%;
+          text-align: left;
+        }
+
+        [menu] & {
+          animation: slide-in-top 200ms ease-in-out 0ms 1 normal both;
+          @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+              animation-delay: #{100 * $i}ms;
+            }
+          }
+        }
+
+        [menu-hiding] & {
+          animation: slide-out-top 500ms ease-in-out 0ms 1 normal both;
+        }
+
+        &__action {
+          font-size: 3rem;
+          letter-spacing: 5px;
+          color: lighten(black, 35%);
+          display: inline-block;
+
+          &:hover {
+            color: black;
+          }
+        }
+      }
+
+      &__baseline {
+        font-weight: bold;
+      }
+    }
   }
 
   &__right {
@@ -120,4 +241,14 @@
       }
     }
   }
+}
+
+// HELPERS, BEM PATTERN
+
+.align-items--center {
+  align-items: center;
+}
+
+.justify-content--space-between {
+  justify-content: space-between;
 }

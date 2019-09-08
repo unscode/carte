@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const FaviconWebpackPlugin = require("favicons-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const HtmlWebpackAssetsPlugin = require('./src/html-webpack-assets-plugin');
+const HtmlWebpackAssets = require('html-webpack-assets');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -144,7 +144,7 @@ module.exports = (env, argv) => {
                     useShortDoctype: argv.mode === "production"
                 }
             }),
-            new HtmlWebpackAssetsPlugin(),
+            new HtmlWebpackAssets(),
             new MiniCssExtractPlugin({
                 filename: "[name].[contenthash].css"
             }),
@@ -152,8 +152,7 @@ module.exports = (env, argv) => {
                 logo: "./src/assets/favicon/brand.png",
                 mode: 'webapp',
                 devMode: 'webapp',
-                title: "Cartê",
-                inject: argv.mode === "production",
+                title: "Cartê"
             }),
             new WorkboxPlugin.GenerateSW({
                 clientsClaim: true,

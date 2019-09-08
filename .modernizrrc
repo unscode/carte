@@ -5,8 +5,10 @@
     "hasEvent"
   ],
   "feature-detects": [
+    "css/animations",
     "css/backgroundcliptext",
     "css/flexbox",
+    "css/transforms",
     "dom/classlist"
   ]
 }

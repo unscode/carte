@@ -9,12 +9,13 @@ const menuAttributeToggle = () => {
     const body = document.body;
     let timeout;
     if (body.hasAttribute('menu')) {
+        body.setAttribute('menu-hiding', '');
         timeout = window.setTimeout(() => {
             body.removeAttribute('menu');
+            body.removeAttribute('menu-hiding');
             window.clearTimeout(timeout)
-        }, 200);
+        }, 500);
     }
-    console.log(timeout);
     body.setAttribute('menu', '');
 };
 
