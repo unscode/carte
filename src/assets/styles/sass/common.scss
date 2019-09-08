@@ -190,7 +190,7 @@
       &:before,
       &:after {
         height: 4px;
-        background: lighten(black, 40%);
+        background: lighten(black, 10%);
         content: '';
         position: absolute;
         transition: all 200ms ease-in-out;

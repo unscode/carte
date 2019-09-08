@@ -1,4 +1,3 @@
-const modernizr = require("modernizr");
 
 /**
  * Adiciona ou remove o attributo menu na tag body.

@@ -22,28 +22,6 @@ b {
   width: 100%;
   position: relative; /* If you want text inside of it */
 
-  /*&:before,
-  &:after {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fec233;
-    content: '';
-    position: absolute;
-  }
-
-  &:before {
-    border-radius: 59% 41% 44% 56% / 45% 54% 46% 55%;
-    opacity: 0.4;
-    animation: rotate 20s linear 0s infinite normal both;
-  }
-
-  &:after {
-    border-radius: 43% 57% 37% 63% / 57% 51% 49% 43%;
-    animation: rotate 25s linear 0s infinite reverse both;
-  }*/
-
   &__yolk {
     top: 0;
     left: 0;
@@ -57,9 +35,19 @@ b {
 }
 
 .box {
-  background: url("../../../svg/circle.svg") no-repeat -10% center;
-  background-size: 250%;
   position: relative;
+
+  &:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../../svg/circle.svg") no-repeat -10% center;
+    background-size: 250%;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
 }
 
 .header {
@@ -147,6 +135,40 @@ b {
 
     &__youtube {
       background-image: url("../../../svg/254381-social-media/svg/001-youtube.svg");
+    }
+  }
+}
+
+
+.emotion {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  overflow: hidden;
+
+  &__ways {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -2;
+  }
+
+  &__follower {
+    &__one,
+    &__two,
+    &__three,
+    &__four,
+    &__five {
+      width: 50px;
+      height: 50px;
+      background: url("../../../svg/send.svg") no-repeat center center;
+      position: absolute;
+      z-index: 9;
     }
   }
 }

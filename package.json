@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "dependencies": {
+    "animejs": "^3.1.0",
     "babel-loader": "^8.0.6",
     "bootstrap": "^4.3.1",
     "html-webpack-assets": "^1.0.2",

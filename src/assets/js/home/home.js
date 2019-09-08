@@ -1,3 +1,5 @@
+import animejs from "animejs";
+
 const modernizr = require("modernizr");
 require('../menu');
 
@@ -40,3 +42,59 @@ if (modernizr.hasEvent('focus')) {
         window.attachEvent('onfocus', window.addEventListener('focus', focus, false));
     }
 }
+
+let one = animejs.path('.emotion__ways .emotion__ways__one');
+let two = animejs.path('.emotion__ways .emotion__ways__two');
+// let three = animejs.path('.emotion__ways .emotion__ways__three');
+let four = animejs.path('.emotion__ways .emotion__ways__four');
+//let five = animejs.path('.emotion__ways .emotion__ways__five');
+
+animejs({
+    targets: '.emotion__follower__one',
+    translateX: one('x'),
+    translateY: one('y'),
+    easing: 'linear',
+    duration: 15000,
+    loop: true
+});
+
+
+animejs({
+    targets: '.emotion__follower__two',
+    translateX: two('x'),
+    translateY: two('y'),
+    easing: 'linear',
+    duration: 25000,
+    delay: 10000,
+    loop: true
+});
+
+/*animejs({
+    targets: '.emotion__follower__three',
+    translateX: three('x'),
+    translateY: three('y'),
+    easing: 'linear',
+    duration: 25000,
+    delay: 5000,
+    loop: true
+});*/
+
+animejs({
+    targets: '.emotion__follower__four',
+    translateX: four('x'),
+    translateY: four('y'),
+    easing: 'linear',
+    duration: 20000,
+    delay: 9000,
+    loop: true
+});
+
+
+/*animejs({
+    targets: '.emotion__follower__five',
+    translateX: five('x'),
+    translateY: five('y'),
+    easing: 'linear',
+    duration: 35000,
+    loop: true
+});*/
