@@ -108,7 +108,7 @@
   z-index: 9999;
 
   [menu] & {
-    box-shadow: 0 0 100px 1000px rgba(black, .5);
+    box-shadow: 0 0 1100px 1100px rgba(black, .5);
     background: white;
   }
 
@@ -150,7 +150,7 @@
 
         [menu] & {
           animation: slide-in-top 200ms ease-in-out 0ms 1 normal both;
-          @for $i from 1 through 3 {
+          @for $i from 1 through 4 {
             &:nth-child(#{$i}) {
               animation-delay: #{100 * $i}ms;
             }
