@@ -140,7 +140,7 @@
       }
 
       &__item {
-        margin: 1.5% 0;
+        margin: 3rem 0;
         text-align: right;
 
         &:last-of-type {
@@ -162,13 +162,36 @@
         }
 
         &__action {
-          font-size: 3rem;
+          font-size: 2rem;
           letter-spacing: 5px;
           color: lighten(black, 35%);
           display: inline-block;
+          @media (min-width: map_get($breakpoints, 'lg')) {
+            & {
+              font-size: 2.5rem;
+            }
+          }
 
           &:hover {
             color: black;
+          }
+
+          &__more {
+            display: none;
+
+            @media (min-width: map_get($breakpoints, 'md')) and (max-width: map_get($breakpoints, 'lg') - 1) {
+              & {
+                font-size: 1.1rem;
+                display: inline-block;
+              }
+            }
+
+            @media (min-width: map_get($breakpoints, 'lg')) {
+              & {
+                font-size: 1.8rem;
+                display: inline-block;
+              }
+            }
           }
         }
       }
