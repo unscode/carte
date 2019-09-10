@@ -13,7 +13,7 @@ html,
 body {
   margin: 0;
   height: 100%;
-  font-size: 12px;
+  font-size: 13px;
   overflow-x: hidden;
 }
 
@@ -30,19 +30,19 @@ body {
 
   @media (min-width: map-get($breakpoints, 'sm') + 1) and (max-width: map-get($breakpoints, 'md')) {
     & {
-      font-size: 1.1rem;
+      font-size: 14px;
     }
   }
 
   @media (min-width: map-get($breakpoints, 'md') + 1) and (max-width: map-get($breakpoints, 'lg')) {
     & {
-      font-size: 1.2rem;
+      font-size: 16px;
     }
   }
 
   @media (min-width: map-get($breakpoints, 'lg') + 1) {
     & {
-      font-size: 1.3rem;
+      font-size: 18px;
     }
   }
 }

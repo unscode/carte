@@ -18,6 +18,10 @@ module.exports = (env, argv) => {
                 "./src/assets/styles/sass/home/home.scss",
                 "./src/assets/js/home/home.js"
             ],
+            services: [
+                "./src/assets/styles/sass/services/services.scss",
+                "./src/assets/js/services/services.js"
+            ]
         },
         output: {
             path: path.resolve(__dirname, "dist"),
@@ -134,7 +138,20 @@ module.exports = (env, argv) => {
             new webpack.ProgressPlugin(),
             new HtmlWebpackPlugin({
                 template: "src/views/home/index.ejs",
-                chunks: ["head", "alert", "runtime", "vendors", "home"],
+                chunks: ["head", "runtime", "vendors", "home"],
+                minify: {
+                    collapseWhitespace: argv.mode === "production",
+                    removeComments: argv.mode === "production",
+                    removeRedundantAttributes: argv.mode === "production",
+                    removeScriptTypeAttributes: argv.mode === "production",
+                    removeStyleLinkTypeAttributes: argv.mode === "production",
+                    useShortDoctype: argv.mode === "production"
+                }
+            }),
+            new HtmlWebpackPlugin({
+                template: "src/views/services/index.ejs",
+                filename: "servicos/index.html",
+                chunks: ["head", "runtime", "vendors", "services"],
                 minify: {
                     collapseWhitespace: argv.mode === "production",
                     removeComments: argv.mode === "production",

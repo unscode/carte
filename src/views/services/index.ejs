@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chilanka|Parisienne&display=swap" rel="stylesheet">
+    <% if (process.env.APP_ENV && process.env.APP_ENV === 'production') { %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async defer
+                src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_ANALYTICS %>"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', '<%= process.env.GOOGLE_ANALYTICS %>');
+        </script>
+    <% } %>
+</head>
+<body>
+
+<%= require('html-loader!../partials/navbar.ejs') %>
+
+<div class="navigation">
+    <ul class="navigation__wrapper">
+        <li class="navigation__wrapper__item">Planejamento</li>
+        <li class="navigation__wrapper__item">Gestão</li>
+    </ul>
+</div>
+
+<div class="content">
+
+    <div class="row">
+        <div class="col-12 col-md-auto col-lg-auto col-xl-auto">
+            <img class="brand" src="../../assets/svg/carte.svg">
+        </div>
+        <div class="col-12 col-md col-lg col-xl">
+            <h2 class="title">
+                Serviços <small class="subtitle">O que fazemos.</small>
+            </h2>
+        </div>
+    </div>
+
+    <div class="row align-items--center">
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="service">
+                <p class="service__title">Planejamento de Marketing</p>
+                <div class="service__description">
+                    Com o <b>Planejamento de Marketing</b> procuramos direções. Pesquisamos o mercado, o público, os
+                    concorrentes e
+                    desenhamos as estratégias adequadas para os objetivos da sua empresa.
+                </div>
+            </div>
+
+            <div class="service">
+                <p class="service__title">Gestão e Assessoria de Marketing</p>
+                <div class="service__description">
+                    Já com a <b>Gestão e Assessoria de Marketing</b> seguimos pelo melhor caminho. Cuidamos da
+                    implementação das
+                    ações para que todas as tarefas, antes planejadas, sejam realizadas de maneira eficiente.
+                </div>
+            </div>
+
+            <div class="service">
+                <p class="service__footer">
+                    Tudo de maneira personalizada, de um jeito transparente e que dá certo pro seu negócio.
+                </p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+            <img class="illustration" src="../../assets/svg/services.svg">
+        </div>
+    </div>
+
+    <div class="footer">
+        Contate-nos
+        <div class="footer__email">
+            email@email.com
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

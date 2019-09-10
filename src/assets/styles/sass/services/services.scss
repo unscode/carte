@@ -1,0 +1,120 @@
+@import "../base";
+@import "../common";
+
+.brand {
+  width: 280px;
+}
+
+.title {
+  margin: 0;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 5rem;
+  position: relative;
+
+  .subtitle {
+    font-weight: 300;
+    color: lighten(black, 50%);
+    display: block;
+  }
+}
+
+.navigation {
+  top: 0;
+  left: 0;
+  margin: 0 2.5rem 0 2.5rem;
+  padding-top: 200px;
+  width: 100%;
+  position: relative;
+  transition: all 200ms ease-in-out;
+  @media (min-width: map_get($breakpoints, 'md')) {
+    margin: 0 0 0 0;
+    width: 250px;
+    height: 100%;
+    align-items: start;
+    display: flex;
+    position: fixed;
+  }
+
+  &__wrapper {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex-wrap: wrap;
+    display: flex;
+
+    &__item {
+      padding: .5rem;
+      position: relative;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        margin: 1.5rem 0;
+        padding-left: 3rem;
+        font-weight: 300;
+        font-size: 2rem;
+        // color: darken(#fec235, 20%);
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        &:before {
+          top: 50%;
+          left: 0;
+          width: 2.5rem;
+          height: 1px;
+          background: white;
+          content: '';
+          position: absolute;
+        }
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  margin: 0 3rem 0 3rem;
+  @media (min-width: map_get($breakpoints, 'md')) {
+    margin-left: 250px;
+    margin-top: 150px;
+  }
+
+  .illustration {
+    width: 100%;
+  }
+
+  .footer {
+    padding: 10rem 0;
+    &__email {
+      font-weight: 100;
+      font-size: 5rem;
+    }
+  }
+}
+
+.service {
+  margin: 10rem 0;
+
+  &__title {
+    letter-spacing: 5px;
+    font-size: 3rem;
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  &__description {
+    letter-spacing: 1px;
+    line-height: 2;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      max-width: 90%;
+    }
+  }
+
+  &__footer {
+    font-family: 'Chilanka', cursive;
+    font-size: 2rem;
+  }
+}
