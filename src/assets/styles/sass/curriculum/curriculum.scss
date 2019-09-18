@@ -1,0 +1,112 @@
+@import "../base";
+@import "../common";
+
+.box {
+  .box__middle,
+  .box__bottom {
+    .box__content {
+      vertical-align: bottom;
+    }
+  }
+}
+
+.curriculum {
+  &__description {
+    letter-spacing: 1px;
+    line-height: 2;
+  }
+}
+
+.brand {
+  width: 280px;
+}
+
+.title {
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 5rem;
+  position: relative;
+
+  .subtitle {
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: lighten(black, 50%);
+    display: block;
+  }
+}
+
+.read {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &__more {
+    margin-top: 5px;
+    margin-left: 2px;
+    width: 1px;
+    height: 50px;
+    background: lighten(black, 50%);
+  }
+}
+
+.content {
+  margin: 0 3rem 0 3rem;
+
+  .illustration {
+    width: 100%;
+  }
+
+  .footer {
+    padding: 10rem 0;
+
+    &__email {
+      font-weight: 100;
+      font-size: 5rem;
+    }
+  }
+}
+
+.academic {
+  &__training {
+    margin-top: 80px;
+    letter-spacing: 1px;
+    line-height: 2;
+  }
+}
+
+.more {
+  padding: 6rem 0;
+}
+
+.experience {
+  &__description {
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+}
+
+.curriculum {
+
+  &__title {
+    letter-spacing: 5px;
+    font-size: 3rem;
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  &__description {
+    letter-spacing: 1px;
+    line-height: 2;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      max-width: 80%;
+    }
+  }
+
+  &__footer {
+    font-family: 'Chilanka', cursive;
+    font-size: 2rem;
+  }
+}

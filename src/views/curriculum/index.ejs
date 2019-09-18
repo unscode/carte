@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chilanka|Parisienne&display=swap" rel="stylesheet">
+    <% if (process.env.APP_ENV && process.env.APP_ENV === 'production') { %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async defer
+                src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_ANALYTICS %>"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', '<%= process.env.GOOGLE_ANALYTICS %>');
+        </script>
+    <% } %>
+</head>
+<body>
+
+<%= require('html-loader!../partials/navbar.ejs') %>
+
+<div class="box">
+    <div class="box__middle">
+        <div class="box__content">
+            <div class="row align-items--flex-end">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6 offset-lg-1 offset-xl-1">
+                    <h2 class="title">
+                        Meu nome é <small class="subtitle">Dayane do Nascimento</small>
+                    </h2>
+                    <div class="curriculum">
+                        <p class="curriculum__description">
+                            Com mais de 13 anos de experiência na área de comunicação,
+                            estou à frente da <b>Cartê Marketing</b> oferecendo consultoria e assessoria de marketing
+                            com foco em
+                            resultados. Sou especialista em planejamento estratégico e economia comportamental. E por
+                            isso
+                            trago a expertise em análise de cenários como um grande diferencial
+                            da Cartê. Ferramentas como SWOT, FCS, pesquisas de mercado e lealdade de clientes com o
+                            método Net Promoter Score (NPS) fazem parte da rotina dos nossos clientes e são um ponto
+                            importante na construção e constante reavaliação das nossas estratégias.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-3 col-xl-3 offset-lg-1 offset-xl-1">
+                    <img class="illustration" src="../../assets/svg/curriculum.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box__bottom">
+        <div class="box__content">
+            <div class="read">
+                <div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1">
+                    Leia mais
+                    <div class="read__more"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more">
+    <div class="row align-items--center">
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4"></div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+            <p>
+                Eu acredito que o bom marketing constrói direções
+                e não um único caminho. E por isso é tão importante aplicar o conhecimento e as técnicas
+                adequadas à realidade de cada empresa para executar um bom plano.
+            </p>
+            <p>
+                Esses são os diferentes clientes que acreditam nesse
+                trabalho e traçam novas rotas diariamente conosco:
+                (marca Domínio com link para o site deles -
+                www.dominiomarcas.com.br)
+                (marca Distribuição Tropical ainda sem link, mas envio
+                em breve)
+                (Marcas trescinco e ariel - link para rede social )
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="more">
+    <div class="experience">
+        <div class="row align-items--flex-end">
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1">
+                <h2 class="title">
+                    Minha<small class="subtitle">Experiência</small>
+                </h2>
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1">
+                <p class="experience__description">
+                    Trabalhando na Mercatto Comunicação, de 2007 a 2017 atuei no Núcleo Estratégico desenvolvendo
+                    pesquisas
+                    de mercado e com o consumidor, DNA de marcas
+                    e planejamentos de comunicação e de posicionamento para os principais clientes da agência.
+                    Também gerenciei o departamento de Digital coordenando
+                    a produção de conteúdo, mídia e planejamento durante essa trajetória.
+                    Na função de liderança de área, desenvolvi outras atividades
+                    de acordo com as necessidades da empresa: desenho de novos processos, implementação de
+                    ferramentas de gestão de rotinas (GEROT),participação do planejamento estratégico e balance
+                    scorecard da empresa. Acompanhei os indicadores de processos, planos de ação
+                    e uso da ferramenta PDCA para a gestão de equipe. Fui responsável por delegação de tarefas,
+                    feedback , avaliação de desempenho por competências, plano de desenvolvimento individual e
+                    gestão de rotina de todo o departamento.
+                    Exerci a função de executiva de conta da rede de Supermercados
+                    Comper - regional MT de
+                    setembro/2017 à fevereiro/2008.
+                    Atuei como responsável pela comunicação interna e projeto
+                    de endomarketing na SANECAP – Cuiabá, e Desenvolvimento de pesquisa de clima organizacional
+                    na BM&G Propaganda, de Janeiro/2005 à setembro/2007.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more">
+    <div class="row align-items--center">
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6 offset-lg-1 offset-xl-1">
+            <div class="academic">
+                <h4>Formação Acadêmica</h4>
+                <p class="academic__training">
+                    MBA em Economia Comportamental pela ESPM/SP – conclusão em junho/18 <br/>
+                    MBA em História da Arte pela Estácio/RJ – cursando <br/>
+                    Graduada em Comunicação Social – Publicidade e Propaganda pela Universidade Federal de Mato Grosso.
+                    <br/>
+                    Bootcamp de Planejamento de Comunicação pela Miami Ad School/SP – curso livre com foco
+                    na prática de planejamento de comunicação e corpo docente formado por profissionais
+                    atuantes no mercado de São Paulo, líderes em grandes agências.
+                </p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-4 offset-md-1 offset-lg-1 offset-xl-1"></div>
+    </div>
+</div>
+
+<div class="more">
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-5 col-xl-5 offset-lg-1 offset-xl-1">
+            <div class="academic">
+                <h4>Curso Extra-Curriculares</h4>
+                <p class="academic__training">
+                    Ferramentas de Gestão Avançada (FGA) – Sebrae/MT (2015) <br/>
+                    Planejamento e Gerenciamento de Marketing – ESPM/SP (2008) <br/>
+                    Tendências de Mercado – ESPM/SP (2008) <br/>
+                    Planejamento Estratégico Empresarial – Faecc/UFMT (2007)
+                </p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-4 offset-md-1 offset-lg-1 offset-xl-1">
+
+        </div>
+    </div>
+</div>
+
+<div class="acknowledgment">
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-5 col-xl-5 offset-lg-1 offset-xl-1"></div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-4 offset-md-1 offset-lg-1 offset-xl-1">
+            <h4>Reconhecimento</h4>
+            <p class="academic__training">
+                Prêmio de Planejamento de campanha pela TVCA (2014) <br/>
+                Excelência em Marketing pela ESPM/SP (2009)
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="footer">
+        Contate-nos
+        <div class="footer__email">
+            email@email.com
+        </div>
+        +55 65 99000-0000
+    </div>
+</div>
+</body>
+</html>

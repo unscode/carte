@@ -10,6 +10,14 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const Dotenv = require("dotenv-webpack");
 
 module.exports = (env, argv) => {
+    const minify = {
+        collapseWhitespace: argv.mode === "production",
+        removeComments: argv.mode === "production",
+        removeRedundantAttributes: argv.mode === "production",
+        removeScriptTypeAttributes: argv.mode === "production",
+        removeStyleLinkTypeAttributes: argv.mode === "production",
+        useShortDoctype: argv.mode === "production"
+    };
     const config = {
         mode: "development", // "production" | "development" | "none"
         entry: {
@@ -17,6 +25,10 @@ module.exports = (env, argv) => {
             home: [
                 "./src/assets/styles/sass/home/home.scss",
                 "./src/assets/js/home/home.js"
+            ],
+            curriculum: [
+                "./src/assets/styles/sass/curriculum/curriculum.scss",
+                "./src/assets/js/curriculum/curriculum.js"
             ],
             services: [
                 "./src/assets/styles/sass/services/services.scss",
@@ -140,12 +152,15 @@ module.exports = (env, argv) => {
                 template: "src/views/home/index.ejs",
                 chunks: ["head", "runtime", "vendors", "home"],
                 minify: {
-                    collapseWhitespace: argv.mode === "production",
-                    removeComments: argv.mode === "production",
-                    removeRedundantAttributes: argv.mode === "production",
-                    removeScriptTypeAttributes: argv.mode === "production",
-                    removeStyleLinkTypeAttributes: argv.mode === "production",
-                    useShortDoctype: argv.mode === "production"
+                    ...minify
+                }
+            }),
+            new HtmlWebpackPlugin({
+                template: "src/views/curriculum/index.ejs",
+                filename: "curriculo/index.html",
+                chunks: ["head", "runtime", "vendors", "curriculum"],
+                minify: {
+                    ...minify
                 }
             }),
             new HtmlWebpackPlugin({
@@ -153,12 +168,7 @@ module.exports = (env, argv) => {
                 filename: "servicos/index.html",
                 chunks: ["head", "runtime", "vendors", "services"],
                 minify: {
-                    collapseWhitespace: argv.mode === "production",
-                    removeComments: argv.mode === "production",
-                    removeRedundantAttributes: argv.mode === "production",
-                    removeScriptTypeAttributes: argv.mode === "production",
-                    removeStyleLinkTypeAttributes: argv.mode === "production",
-                    useShortDoctype: argv.mode === "production"
+                    ...minify
                 }
             }),
             new HtmlWebpackAssets(),
