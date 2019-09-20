@@ -11,28 +11,37 @@
 }
 
 .curriculum {
+  &__illustration {
+    display: none;
+    @media (min-width: map_get($breakpoints, 'lg')) {
+      display: block;
+    }
+  }
+
   &__description {
     letter-spacing: 1px;
     line-height: 2;
   }
 }
 
-.brand {
-  width: 280px;
-}
-
 .title {
   margin: 0;
   text-align: left;
   text-transform: uppercase;
-  font-size: 5rem;
+  font-size: 2rem;
   position: relative;
+  @media (min-width: map_get($breakpoints, 'md')) {
+    font-size: 4rem;
+  }
 
   .subtitle {
     font-weight: 300;
     letter-spacing: 3px;
     color: lighten(black, 50%);
     display: block;
+    @media (min-width: map_get($breakpoints, 'md')) {
+
+    }
   }
 }
 

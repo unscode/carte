@@ -34,7 +34,7 @@
     "workbox-webpack-plugin": "^4.3.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --bonjour",
+    "start": "webpack-dev-server",
     "build": "webpack --mode=production"
   },
   "author": {
