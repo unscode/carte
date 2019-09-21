@@ -67,7 +67,7 @@ module.exports = (env, argv) => {
             bonjour: true,
             contentBase: path.join(__dirname, "src"),
             compress: true,
-            port: 9003
+            port: 80
         },
         module: {
             rules: [
