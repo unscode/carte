@@ -4,32 +4,16 @@ body {
   height: auto;
 }
 
-.brand {
-  width: 280px;
-}
-
-.title {
-  margin: 0;
-  text-align: right;
-  text-transform: uppercase;
-  font-size: 5rem;
-  position: relative;
-
-  .subtitle {
-    font-weight: 300;
-    color: lighten(black, 50%);
-    display: block;
-  }
-}
-
 .navigation {
   top: 0;
   left: 0;
   margin: 0 3%;
-  padding-top: 100px;
+  padding-top: 70px;
   width: 100% - 6%;
   position: fixed;
   transition: all 200ms ease-in-out;
+  z-index: 9999;
+
   @media (min-width: map_get($breakpoints, 'md')) {
     margin: 0 0 0 0;
     padding-top: 200px;
@@ -39,17 +23,29 @@ body {
     display: flex;
   }
 
-  &__wrapper {
+  &-wrapper {
     margin: 0;
     padding: 0;
     list-style-type: none;
     flex-wrap: wrap;
     display: flex;
 
-    &__item {
+    &-item {
       padding: .5rem;
       font-size: 2rem;
+      background: white;
       position: relative;
+
+      &:before {
+        top: 100%;
+        left: .6rem;
+        width: 0;
+        height: 2px;
+        content: '';
+        position: absolute;
+        transition: all 500ms ease-in-out;
+      }
+
       @media (min-width: map_get($breakpoints, 'md')) {
         margin: 1.5rem 0;
         padding-left: 3rem;
@@ -61,15 +57,19 @@ body {
         &:before {
           top: 50%;
           left: 0;
-          width: 2.5rem;
           height: 1px;
-          background: white;
-          content: '';
-          position: absolute;
         }
 
         &:first-of-type {
           margin-top: 0;
+        }
+      }
+
+      .planning-and-marketing &-planning-and-marketing,
+      .marketing-management-and-advisory &-marketing-management-and-advisory {
+        &:before {
+          width: 2.5rem;
+          background: black;
         }
       }
     }
@@ -83,6 +83,50 @@ body {
     margin-top: 150px;
   }
 
+  &-brand {
+    width: 280px;
+  }
+
+  &-title {
+    margin: 0;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 5rem;
+    position: relative;
+  }
+
+  &-subtitle {
+    font-weight: 300;
+    color: lighten(black, 50%);
+    display: block;
+  }
+
+  .service {
+    margin: 15rem 0;
+
+    &-title {
+      letter-spacing: 5px;
+      font-size: 3rem;
+
+      &--right {
+        text-align: right;
+      }
+    }
+
+    &-description {
+      letter-spacing: 1px;
+      line-height: 2;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        max-width: 80%;
+      }
+    }
+
+    &-footer {
+      font-family: 'Chilanka', cursive;
+      font-size: 2rem;
+    }
+  }
+
   .illustration {
     width: 100%;
   }
@@ -94,31 +138,5 @@ body {
       font-weight: 100;
       font-size: 5rem;
     }
-  }
-}
-
-.service {
-  margin: 10rem 0;
-
-  &__title {
-    letter-spacing: 5px;
-    font-size: 3rem;
-
-    &--right {
-      text-align: right;
-    }
-  }
-
-  &__description {
-    letter-spacing: 1px;
-    line-height: 2;
-    @media (min-width: map_get($breakpoints, 'md')) {
-      max-width: 80%;
-    }
-  }
-
-  &__footer {
-    font-family: 'Chilanka', cursive;
-    font-size: 2rem;
   }
 }
