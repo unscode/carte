@@ -99,7 +99,6 @@
 .navbar {
   padding: 1rem 3% 0 3%;
   width: 100%;
-  // background: white;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
@@ -120,8 +119,11 @@
   &__left,
   &__right {
     padding: 0;
-    background: white;
     list-style-type: none;
+    background: white;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      background: none;
+    }
   }
 
   &__collapse {
