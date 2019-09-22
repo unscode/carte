@@ -3,25 +3,26 @@
 body {
   height: auto;
 
-  &:before {
-    top: 0;
+  &:before,
+  &:after {
     left: 0;
     width: 100%;
-    height: 5px;
-    content: '';
     background: $primary;
+    content: '';
     position: fixed;
     z-index: 99999;
   }
 
+  &:before {
+    top: 0;
+    width: 100%;
+    height: 5px;
+
+  }
+
   &:after {
     bottom: 0;
-    left: 0;
-    width: 100%;
     height: 2px;
-    content: '';
-    background: $primary;
-    position: fixed;
   }
 }
 
@@ -112,8 +113,11 @@ body {
     margin: 0;
     text-align: right;
     text-transform: uppercase;
-    font-size: 5rem;
+    font-size: 2rem;
     position: relative;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      font-size: 5rem;
+    }
   }
 
   &-subtitle {
@@ -143,7 +147,10 @@ body {
 
     &-title {
       letter-spacing: 5px;
-      font-size: 3rem;
+      font-size: 2rem;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        font-size: 3rem;
+      }
     }
 
     &-description {
@@ -155,7 +162,6 @@ body {
     }
 
     &-footer {
-      // font-family: 'Chilanka', cursive;
       font-size: 2.5rem;
       font-weight: 300;
       color: darken($primary, 10%)
@@ -172,7 +178,10 @@ body {
 
     &__email {
       font-weight: 100;
-      font-size: 5rem;
+      font-size: 2rem;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        font-size: 5rem;
+      }
     }
   }
 }
