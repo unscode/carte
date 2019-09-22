@@ -14,9 +14,15 @@
 }
 
 .egg {
-  padding-top: 100%; /* 1:1 Aspect Ratio */
+  padding-top: 75%;
   width: 100%;
+  background: $primary;
+  border-radius: 10px;
   position: relative; /* If you want text inside of it */
+  @media (min-width: map_get($breakpoints, 'md')) {
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    background: none;
+  }
 
   &__yolk {
     top: 0;
@@ -24,9 +30,12 @@
     bottom: 0;
     right: 0;
     background: url("../../../svg/carte.svg") no-repeat center center;
-    background-size: 100%;
+    background-size: 80%;
     position: absolute;
     z-index: 99;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      background-size: 100%;
+    }
   }
 }
 
@@ -46,18 +55,32 @@
       z-index: -1;
     }
   }
+
+  &__middle {
+    .box__content {
+      padding-top: 30%;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        padding-top: 0;
+      }
+    }
+  }
 }
 
 .header {
   &-row {
     align-items: center;
     justify-content: space-around;
+    flex-direction: column-reverse;
     position: relative;
+
+    @media (min-width: map_get($breakpoints, 'md')) {
+      flex-direction: row;
+    }
   }
 
-  &__description {
+  &__title {
     margin: 2rem 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'Chilanka', cursive;
     line-height: 1.5;
     text-shadow: 2px 2px 0 #fff;
@@ -76,6 +99,10 @@
       background: black;
       content: '';
       position: absolute;
+      display: none;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        display: block;
+      }
     }
 
     &:after {
@@ -84,6 +111,10 @@
       content: 'INTRO';
       font-size: 1rem;
       position: absolute;
+      display: none;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        display: block;
+      }
     }
   }
 
@@ -92,20 +123,29 @@
     font-size: 1.2rem;
     line-height: 2;
     font-weight: normal;
+    display: none;
     @media (min-width: map_get($breakpoints, 'md')) {
       & {
-        width: 60%;
+        width: 90%;
+        display: block;
       }
     }
   }
 
   &__links {
     margin-left: .5rem;
+    margin-bottom: 5rem;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      margin-bottom: 0;
+    }
 
     &__action {
       margin: 0 1rem;
-      font-size: 3rem;
+      font-size: 2rem;
       color: lighten(black, 30%);
+      @media (min-width: map_get($breakpoints, 'md')) {
+        font-size: 3rem;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -115,70 +155,6 @@
       &:first-of-type {
         margin-left: 0;
       }
-    }
-  }
-}
-
-.footer {
-  padding: 1rem 0;
-  width: 100%;
-  font-family: 'Chilanka', cursive;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-
-  .location {
-    align-items: center;
-    display: flex;
-
-    &__icon {
-      margin-right: .5rem;
-      width: 25px;
-      display: inline-block;
-    }
-  }
-
-  .mail {
-    align-items: center;
-    display: flex;
-
-    &__icon {
-      margin-right: .5rem;
-      width: 25px;
-      display: inline-block;
-    }
-  }
-
-  .social {
-    align-items: center;
-    display: flex;
-
-    &__facebook,
-    &__twitter,
-    &__instagram,
-    &__youtube {
-      margin: 0 .2rem;
-      width: 25px;
-      height: 25px;
-      background-position: top left;
-      background-size: 25px;
-      display: inline-block;
-    }
-
-    &__facebook {
-      background-image: url("../../../svg/254381-social-media/svg/023-facebook.svg");
-    }
-
-    &__twitter {
-      background-image: url("../../../svg/254381-social-media/svg/008-twitter.svg");
-    }
-
-    &__instagram {
-      background-image: url("../../../svg/254381-social-media/svg/020-instagram.svg");
-    }
-
-    &__youtube {
-      background-image: url("../../../svg/254381-social-media/svg/001-youtube.svg");
     }
   }
 }
@@ -223,6 +199,91 @@
         position: absolute;
         opacity: .5;
       }
+    }
+  }
+}
+
+
+.footer {
+  padding: 1rem 0;
+  width: 100%;
+  font-family: 'Chilanka', cursive;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+
+  .location,
+  .mail,
+  .social {
+    flex: 0 0 100%;
+    max-width: 100%;
+    @media (min-width: map_get($breakpoints, 'md')) {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  .location {
+    align-items: center;
+    display: flex;
+
+    &__icon {
+      margin-right: .5rem;
+      width: 25px;
+      display: inline-block;
+    }
+  }
+
+  .mail {
+    align-items: center;
+    display: flex;
+
+    &__icon {
+      margin-right: .5rem;
+      width: 25px;
+      display: inline-block;
+    }
+  }
+
+  .social {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+
+    &__facebook,
+    &__twitter,
+    &__instagram,
+    &__youtube {
+      margin: 0 .2rem;
+      width: 35px;
+      height: 35px;
+      background-position: top left;
+      background-size: 35px;
+      display: inline-block;
+      @media (min-width: map_get($breakpoints, 'md')) {
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+      }
+    }
+
+    &__facebook {
+      background-image: url("../../../svg/254381-social-media/svg/023-facebook.svg");
+    }
+
+    &__twitter {
+      background-image: url("../../../svg/254381-social-media/svg/008-twitter.svg");
+    }
+
+    &__instagram {
+      background-image: url("../../../svg/254381-social-media/svg/020-instagram.svg");
+    }
+
+    &__youtube {
+      background-image: url("../../../svg/254381-social-media/svg/001-youtube.svg");
     }
   }
 }

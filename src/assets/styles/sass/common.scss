@@ -97,8 +97,9 @@
 }
 
 .navbar {
-  padding: 1rem 3rem 0 3rem;
+  padding: 1rem 3% 0 3%;
   width: 100%;
+  // background: white;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
@@ -106,6 +107,10 @@
   display: flex;
   position: fixed;
   z-index: 9999;
+
+  @media (min-width: map_get($breakpoints, 'md')) {
+    padding: 1rem 3rem 0 3rem;
+  }
 
   [menu] & {
     box-shadow: 0 0 1100px 1100px rgba(black, .5);
@@ -266,7 +271,7 @@
   }
 }
 
-// HELPERS, BEM PATTERN
+// HELPERS
 
 .align-items--center {
   align-items: center;

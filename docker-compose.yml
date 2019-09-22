@@ -7,6 +7,4 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     network_mode: "host"
-    #ports:
-      #- "80:80"
     restart: always
