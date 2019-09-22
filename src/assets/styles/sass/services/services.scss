@@ -34,7 +34,7 @@ body {
   width: 100% - 6%;
   position: fixed;
   transition: all 200ms ease-in-out;
-  z-index: 9999;
+  z-index: 999;
 
   @media (min-width: map_get($breakpoints, 'md')) {
     margin: 0 0 0 0;
