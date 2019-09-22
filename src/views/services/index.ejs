@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Parisienne&display=swap" rel="stylesheet">
     <% if (process.env.APP_ENV && process.env.APP_ENV === 'production') { %>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async defer
+        <script async
                 src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_ANALYTICS %>"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -21,6 +21,23 @@
 
             gtag('js', new Date());
             gtag('config', '<%= process.env.GOOGLE_ANALYTICS %>');
+        </script>
+    <% } %>
+
+    <% if (process.env.APP_ENV && process.env.APP_ENV === 'production') { %>
+        <!-- Hotjar Tracking Code for https://infocorpjr.com/ -->
+        <script>
+            (function (h, o, t, j, a, r) {
+                h.hj = h.hj || function () {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = {hjid:<%= process.env.HOTJAR %>, hjsv: 6};
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
         </script>
     <% } %>
 </head>
@@ -35,9 +52,10 @@
     </ul>
 </div>
 
+<!-- Content -->
 <div class="content">
 
-    <div class="row">
+    <section class="row" data-section="what-we-do">
         <div class="col-12 col-md-auto col-lg-auto col-xl-auto">
             <img class="brand" src="../../assets/svg/carte.svg">
         </div>
@@ -46,11 +64,11 @@
                 Serviços <small class="subtitle">O que fazemos.</small>
             </h2>
         </div>
-    </div>
+    </section>
 
-    <div class="row align-items--center">
+    <section class="row align-items-center">
         <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <div class="service">
+            <div class="service" data-section="planning-and-marketing">
                 <p class="service__title">Planejamento de Marketing</p>
                 <div class="service__description">
                     Com o <b>Planejamento de Marketing</b> procuramos direções. Pesquisamos o mercado, o público, os
@@ -58,8 +76,7 @@
                     desenhamos as estratégias adequadas para os objetivos da sua empresa.
                 </div>
             </div>
-
-            <div class="service">
+            <div class="service" data-section="marketing-management-and-advisory">
                 <p class="service__title">Gestão e Assessoria de Marketing</p>
                 <div class="service__description">
                     Já com a <b>Gestão e Assessoria de Marketing</b> seguimos pelo melhor caminho. Cuidamos da
@@ -67,8 +84,7 @@
                     ações para que todas as tarefas, antes planejadas, sejam realizadas de maneira eficiente.
                 </div>
             </div>
-
-            <div class="service">
+            <div class="service" data-section="">
                 <p class="service__footer">
                     Tudo de maneira personalizada, de um jeito transparente e que dá certo pro seu negócio.
                 </p>
@@ -77,18 +93,15 @@
         <div class="col-12 col-md-12 col-lg-6 col-xl-6">
             <img class="illustration" src="../../assets/svg/services.svg">
         </div>
-    </div>
+    </section>
 
-    <div class="footer">
+    <section class="footer" data-section="contact-us">
         Contate-nos
-        <div class="footer__email">
-            email@email.com
-        </div>
+        <div class="footer__email">email@email.com</div>
         +55 65 99000-0000
-    </div>
+    </section>
 
 </div>
-
 
 </body>
 </html>
