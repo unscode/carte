@@ -1,5 +1,28 @@
-@import "../base";
 @import "../common";
+
+body {
+  &:before,
+  &:after {
+    left: 0;
+    width: 100%;
+    background: $primary;
+    content: '';
+    position: fixed;
+    z-index: 99999;
+  }
+
+  &:before {
+    top: 0;
+    width: 100%;
+    height: 5px;
+
+  }
+
+  &:after {
+    bottom: 0;
+    height: 2px;
+  }
+}
 
 .box {
   .box__middle,
@@ -7,20 +30,6 @@
     .box__content {
       vertical-align: bottom;
     }
-  }
-}
-
-.curriculum {
-  &__illustration {
-    display: none;
-    @media (min-width: map_get($breakpoints, 'lg')) {
-      display: block;
-    }
-  }
-
-  &__description {
-    letter-spacing: 1px;
-    line-height: 2;
   }
 }
 
@@ -42,6 +51,70 @@
     @media (min-width: map_get($breakpoints, 'md')) {
 
     }
+  }
+}
+
+.curriculum {
+  &__illustration {
+    display: none;
+    @media (min-width: map_get($breakpoints, 'lg')) {
+      display: block;
+    }
+  }
+
+  &__description {
+    letter-spacing: 1px;
+    line-height: 2;
+  }
+
+  &__with {
+    padding: 6rem 0;
+
+    &__testimony {
+      background: white;
+      font-family: 'Chilanka', cursive;
+      font-size: 2rem;
+      color: darken($primary, 10%);
+
+      @media (min-width: map_get($breakpoints, 'md')) {
+        &:before {
+          top: -30%;
+          left: 20%;
+          width: 100%;
+          height: 50%;
+          background: url("../../../svg/dots-large.svg") repeat;
+          content: '';
+          position: absolute;
+          z-index: -1;
+        }
+        &:after {
+          bottom: -30%;
+          left: -10%;
+          width: 100%;
+          height: 50%;
+          background: url("../../../svg/dots-large.svg") repeat;
+          content: '';
+          position: absolute;
+          z-index: -1;
+        }
+      }
+      @media (min-width: map_get($breakpoints, 'lg')) {
+        font-size: 3rem;
+      }
+    }
+
+    &__companies {
+      background: white;
+      letter-spacing: 1px;
+      line-height: 2;
+    }
+  }
+
+  &__experience,
+  &__academic,
+  &__courses,
+  &__acknowledgment {
+    padding: 4rem 0;
   }
 }
 
@@ -84,14 +157,10 @@
   }
 }
 
-.more {
-  padding: 6rem 0;
-}
-
 .experience {
   &__description {
     letter-spacing: 1px;
-    line-height: 1.5;
+    line-height: 2;
   }
 }
 
