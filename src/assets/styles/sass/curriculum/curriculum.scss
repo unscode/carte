@@ -1,6 +1,9 @@
 @import "../common";
 
 body {
+  background: url("../../../svg/shapes-bg-a85e9f36ac.svg");
+  background-size: 100%;
+
   &:before,
   &:after {
     left: 0;
@@ -71,8 +74,10 @@ body {
     padding: 6rem 0;
 
     &__testimony {
+      padding: .5rem;
       background: white;
-      font-family: 'Chilanka', cursive;
+      font-weight: bold;
+      line-height: 1.5;
       font-size: 2rem;
       color: darken($primary, 10%);
 
@@ -140,7 +145,17 @@ body {
   }
 
   .footer {
-    padding: 10rem 0;
+    padding: 6rem 0;
+
+    &:before {
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-size: 100%;
+      content: url("../../../svg/bg.svg");
+      position: absolute;
+    }
 
     &__email {
       font-weight: 100;
